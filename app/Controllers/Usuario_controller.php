@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Controllers;
+
+// Última actualización: protección de rutas y sesión de usuarios (Tramo 3)
+
 use App\Models\UsuarioModel;
 
 class Usuario_controller extends BaseController
@@ -60,7 +63,7 @@ class Usuario_controller extends BaseController
         // Buscar usuario actual
         $usuario = $model->find($id);
 
-        // Si se ingresó una nueva contraseña, la hashea. Si no, deja la actual.
+        // Si se ingresó una nueva contraseña
         $passwordInput = $this->request->getPost('password');
         $password = $passwordInput ? password_hash($passwordInput, PASSWORD_DEFAULT) : $usuario['password'];
 
